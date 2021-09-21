@@ -4,6 +4,13 @@ import styled from 'styled-components';
 import Button from '../../UI/Button/Button';
 import './CourseInput.css';
 
+const setColorDependingOnValidity = (props) =>
+  props.invalid ? '#dc3545' : 'black';
+const setBorderColorDependingOnValidity = (props) =>
+  props.invalid ? '#dc3545' : '#ccc';
+const setBoxShadowDependingOnValidity = (props) =>
+  props.invalid ? '0 0 0 0.25rem rgb(220 53 69 / 25%)' : 'initial';
+
 const FormControl = styled.div`
    {
     margin: 0.5rem 0;
@@ -13,18 +20,17 @@ const FormControl = styled.div`
     font-weight: bold;
     display: block;
     margin-bottom: 0.5rem;
-    color: ${(props) => (props.invalid ? '#dc3545' : 'black')};
+    color: ${setColorDependingOnValidity};
   }
 
   & input {
     display: block;
     width: 100%;
-    border: 1px solid ${(props) => (props.invalid ? '#dc3545' : '#ccc')};
+    border: 1px solid ${setBorderColorDependingOnValidity};
     font: inherit;
     line-height: 1.5rem;
     padding: 0 0.25rem;
-    box-shadow: ${(props) =>
-      props.invalid ? '0 0 0 0.25rem rgb(220 53 69 / 25%)' : 'initial'};
+    box-shadow: ${setBoxShadowDependingOnValidity};
   }
 
   & input:focus {
