@@ -9,7 +9,7 @@ const setColorDependingOnValidity = (props) =>
 const setBorderColorDependingOnValidity = (props) =>
   props.invalid ? '#dc3545' : '#ccc';
 const setBoxShadowDependingOnValidity = (props) =>
-  props.invalid ? '0 0 0 0.25rem rgb(220 53 69 / 25%)' : 'initial';
+  props.invalid && '0 0 0 0.25rem rgb(220 53 69 / 25%)';
 
 const FormControl = styled.div`
    {
